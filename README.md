@@ -22,7 +22,7 @@ yarn add postcss-scope --dev
 
 export default {
     plugins: {
-        "postcss-scope": ".foot",
+        "postcss-scope": ".foo",
     },
 };
 ```
@@ -43,6 +43,7 @@ export default {
 
 ## Usage
 
+The default output for all files would look something like this, where `.foo` is prepended on all rules. However, using CSS comments, you have more control over each file. 
 
 ```css
 .foo .class {
