@@ -1,6 +1,6 @@
 # postcss-scope 🔭
 
-A small plugin create to scope your css with a custom selector
+A small plugin to allow you to scope your css with a custom selector
 
 ## Installation
 ```bash
