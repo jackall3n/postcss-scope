@@ -43,12 +43,13 @@ export default {
 
 ## Usage
 
+
 ```css
-.foo html {
+.foo .class {
     font-size: 12px;
 }
 
-.foo body {
+.foo #id {
     font-size: 12px;
 }
 ```
@@ -58,12 +59,12 @@ export default {
 Add a comment to specify particular rules that should not be scoped
 
 ```css
-.foo html {
+.foo .class {
     font-size: 12px;
 }
 
 /* postcss-scope:ignore */
-body {
+#id {
     font-size: 12px;
 }
 ```
@@ -75,11 +76,11 @@ Add a comment to specify files that the plugin should ignore
 ```css
 /* postcss-scope:ignore-file */
 
-html {
+.class {
     font-size: 12px;
 }
 
-body {
+#id {
     font-size: 12px;
 }
 ```
@@ -92,11 +93,11 @@ Add a comment to override the selector for a particular file
 ```css
 /* postcss-scope:.bar */
 
-.bar html {
+.bar .class {
     font-size: 12px;
 }
 
-.bar body {
+.bar #id {
     font-size: 12px;
 }
 ```
