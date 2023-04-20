@@ -4,7 +4,8 @@
   "description": "A small plugin create to scope your css with a custom selector",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "prepublish": "pnpm build"
   },
   "keywords": [
     "postcss",
