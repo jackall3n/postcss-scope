@@ -1,6 +1,6 @@
 {
   "name": "postcss-scope",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "A small plugin create to scope your css with a custom selector",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
