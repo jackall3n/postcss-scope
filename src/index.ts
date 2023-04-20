@@ -11,7 +11,7 @@ export interface Options {
 export interface Config {
   scope: string;
   ignoreFile: boolean;
-  ignoreRules: number[]
+  ignoreRules: number[];
 }
 
 function processNode(node: ChildNode, scope: string) {
@@ -78,7 +78,9 @@ function getConfig(nodes: ChildNode[]): Config {
  * Initialise the plugin with options
  * @param options
  */
-function plugin(options: Options): Plugin {
+function plugin(options: Options | string): Plugin {
+  const opts = typeof options === "string" ? { scope: options } : options;
+
   return {
     postcssPlugin: PLUGIN_NAME,
     Root(root) {
@@ -90,7 +92,7 @@ function plugin(options: Options): Plugin {
         return;
       }
 
-      const scope = config.scope || options.scope;
+      const scope = config.scope || opts.scope;
 
       for (const node of nodes) {
         const index = nodes.indexOf(node);
