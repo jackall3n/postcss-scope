@@ -1,0 +1,27 @@
+/* postcss-scope:.bar */
+
+.bar {
+  font-size: 12px;
+}
+
+.bar {
+  font-size: 12px;
+}
+
+.bar {
+  font-size: 12px;
+}
+
+.bar .class {
+  font-size: 12px;
+}
+
+.bar #id {
+  font-size: 12px;
+}
+
+@media screen {
+  .bar .class {
+    font-size: 12px;
+  }
+}

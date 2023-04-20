@@ -1,0 +1,25 @@
+.foo {
+  font-size: 12px;
+}
+
+.foo {
+  font-size: 12px;
+}
+
+.foo {
+  font-size: 12px;
+}
+
+.foo .class {
+  font-size: 12px;
+}
+
+.foo #id {
+  font-size: 12px;
+}
+
+@media screen {
+  .foo .class {
+    font-size: 12px;
+  }
+}
