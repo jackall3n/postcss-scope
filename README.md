@@ -22,7 +22,7 @@ yarn add postcss-scope --dev
 
 export default {
     plugins: {
-        "postcss-scope": ".foot",
+        "postcss-scope": ".foo",
     },
 };
 ```
