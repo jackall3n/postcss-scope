@@ -107,6 +107,9 @@ function plugin(options: Options | string): Plugin {
   };
 }
 
-export const postcss = true;
+// @ts-ignore
+module.exports.postcss = true;
+// @ts-ignore
+module.exports = plugin;
 
-export default plugin;
+export default plugin
