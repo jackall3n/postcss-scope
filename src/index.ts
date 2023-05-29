@@ -1,4 +1,7 @@
 import { ChildNode, Plugin } from "postcss";
+import type { Root } from "postcss-selector-parser";
+
+const parser = require("postcss-selector-parser");
 
 import Comment from "postcss/lib/comment";
 
@@ -14,6 +17,28 @@ export interface Config {
   ignoreRules: number[];
 }
 
+const parse = (scope: string) =>
+  parser((selectors: Root) => {
+    let done = false;
+
+    selectors.walkNesting((nesting) => {
+      done = true
+
+      nesting.replaceWith(parser.string({ value: scope }));
+    });
+
+    if (done) {
+      return;
+    }
+
+    selectors.first.prepend(
+      parser.selector({
+        value: "scope",
+        nodes: [parser.string({ value: scope + " " })],
+      })
+    );
+  });
+
 function processNode(node: ChildNode, scope: string) {
   if (node.type === "atrule") {
     node.nodes.forEach((node) => processNode(node, scope));
@@ -27,7 +52,9 @@ function processNode(node: ChildNode, scope: string) {
       return;
     }
 
-    node.selector = `${scope} ${node.selector}`;
+    node.selectors = node.selectors.map((selector) => {
+      return parse(scope).processSync(selector);
+    });
   }
 }
 
@@ -112,4 +139,4 @@ module.exports.postcss = true;
 // @ts-ignore
 module.exports = plugin;
 
-export default plugin
+export default plugin;
