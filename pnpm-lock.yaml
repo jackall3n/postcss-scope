@@ -11,7 +11,7 @@ specifiers:
   postcss: ^8.4.23
   postcss-scopify: ^0.1.10
   postcss-selector-parser: ^6.0.12
-  prettier: ^2.8.7
+  prettier: ^3.0.0
   typescript: ^5.0.4
 
 dependencies:
@@ -27,7 +27,7 @@ devDependencies:
   '@types/node': 18.15.12
   babel-jest: 29.5.0_@babel+core@7.21.4
   jest: 29.5.0_@types+node@18.15.12
-  prettier: 2.8.7
+  prettier: 3.0.0
   typescript: 5.0.4
 
 packages:
@@ -2959,9 +2959,9 @@ packages:
       source-map-js: 1.0.2
     dev: false
 
-  /prettier/2.8.7:
-    resolution: {integrity: sha512-yPngTo3aXUUmyuTjeTUT75txrf+aMh9FiD7q9ZE/i6r0bPb22g4FsE6Y338PQX1bmfy08i9QQCB7/rcUAVntfw==}
-    engines: {node: '>=10.13.0'}
+  /prettier/3.0.0:
+    resolution: {integrity: sha512-zBf5eHpwHOGPC47h0zrPyNn+eAEIdEzfywMoYn2XPi0P44Zp0tSq64rq0xAREh4auw2cJZHo9QUob+NqCQky4g==}
+    engines: {node: '>=14'}
     hasBin: true
     dev: true
 
