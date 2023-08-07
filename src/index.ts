@@ -116,8 +116,11 @@ function getConfig(nodes: ChildNode[]): Config {
  * Initialise the plugin with options
  * @param options
  */
-function plugin(options: Options | string): Plugin {
-  const opts = typeof options === "string" ? { scope: options } : options;
+function plugin(options: Options | string | string[]): Plugin {
+  const opts =
+    typeof options === "string" || Array.isArray(options)
+      ? { scope: options }
+      : options;
 
   return {
     postcssPlugin: PLUGIN_NAME,

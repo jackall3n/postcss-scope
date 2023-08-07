@@ -7,7 +7,7 @@ function fixture(name: string, ext = "css") {
   return readFileSync(resolve("tests/fixtures", `${name}.${ext}`), "utf8");
 }
 
-function process(options: Options, input: string) {
+function process(options: Options | string | string[], input: string) {
   return postcss(plugin(options)).process(input, { from: undefined });
 }
 
@@ -82,9 +82,7 @@ describe("postcss-scope", () => {
   });
 
   it("should support multiple scopes", async () => {
-    const options = {
-      scope: [".foo", ".bar"],
-    };
+    const options = [".foo", ".bar"];
 
     const input = fixture("multiple-scopes");
     const expected = fixture("multiple-scopes.expected");
