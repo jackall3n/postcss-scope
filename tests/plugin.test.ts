@@ -80,4 +80,18 @@ describe("postcss-scope", () => {
     expect(actual.css).toEqual(expected);
     expect(actual.warnings()).toHaveLength(0);
   });
+
+  it("should support multiple scopes", async () => {
+    const options = {
+      scope: [".foo", ".bar"],
+    };
+
+    const input = fixture("multiple-scopes");
+    const expected = fixture("multiple-scopes.expected");
+
+    const actual = await process(options, input);
+
+    expect(actual.css).toEqual(expected);
+    expect(actual.warnings()).toHaveLength(0);
+  });
 });

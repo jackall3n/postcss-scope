@@ -8,11 +8,11 @@ import Comment from "postcss/lib/comment";
 export const PLUGIN_NAME = "postcss-scope";
 
 export interface Options {
-  scope: string;
+  scope: string | string[];
 }
 
 export interface Config {
-  scope: string;
+  scope: string | string[];
   ignoreFile: boolean;
   ignoreRules: number[];
 }
@@ -22,7 +22,7 @@ const parse = (scope: string) =>
     let done = false;
 
     selectors.walkNesting((nesting) => {
-      done = true
+      done = true;
 
       nesting.replaceWith(parser.string({ value: scope }));
     });
@@ -39,22 +39,33 @@ const parse = (scope: string) =>
     );
   });
 
-function processNode(node: ChildNode, scope: string) {
+function processNode(node: ChildNode, scopes: string[]) {
   if (node.type === "atrule") {
-    node.nodes.forEach((node) => processNode(node, scope));
+    node.nodes.forEach((node) => processNode(node, scopes));
 
     return;
   }
 
   if (node.type === "rule") {
     if (/^(body|html|:root)/.test(node.selector)) {
-      node.selector = node.selector.replace(/^(body|html|:root)/, scope);
+      node.selector = node.selector.replace(
+        /^(body|html|:root)/,
+        scopes.join(", ")
+      );
       return;
     }
 
-    node.selectors = node.selectors.map((selector) => {
-      return parse(scope).processSync(selector);
-    });
+    const selectors: string[] = [];
+
+    for (const scope of scopes) {
+      const scoped = node.selectors.map((selector) => {
+        return parse(scope).processSync(selector);
+      });
+
+      selectors.push(...scoped);
+    }
+
+    node.selectors = selectors;
   }
 }
 
@@ -120,6 +131,7 @@ function plugin(options: Options | string): Plugin {
       }
 
       const scope = config.scope || opts.scope;
+      const scopes = Array.isArray(scope) ? scope : [scope];
 
       for (const node of nodes) {
         const index = nodes.indexOf(node);
@@ -128,7 +140,7 @@ function plugin(options: Options | string): Plugin {
           continue;
         }
 
-        processNode(node, scope);
+        processNode(node, scopes);
       }
     },
   };
