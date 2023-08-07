@@ -1,0 +1,24 @@
+.foo, .bar {
+  font-size: 12px;
+}
+
+.foo, .bar {
+  font-size: 12px;
+}
+
+.foo, .bar {
+  font-size: 12px;
+}
+
+.foo h1,
+.foo h2,
+.foo h3,
+.foo h4,
+.foo h5,
+.bar h1,
+.bar h2,
+.bar h3,
+.bar h4,
+.bar h5 {
+  color: red;
+}
