@@ -27,6 +27,17 @@ export default {
 };
 ```
 
+### Multiple scopes
+```javascript
+// postcss.config.js
+
+export default {
+    plugins: {
+        "postcss-scope": [".foo", ".bar"],
+    },
+};
+```
+
 ### With Tailwind
 ```javascript
 // postcss.config.js
