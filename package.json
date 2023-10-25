@@ -1,6 +1,6 @@
 {
   "name": "postcss-scope",
-  "version": "1.7.1",
+  "version": "1.7.3",
   "description": "A small plugin to allow you to scope your css with a custom selector\n",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -15,6 +15,15 @@
     "tailwindcss",
     "tailwind"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jackall3n/postcss-scope.git"
+  },
+  "bugs": {
+    "email": "jackallensemail+git@gmail.com",
+    "url": "https://github.com/jackall3n/postcss-scope/issues"
+  },
+  "homepage": "https://github.com/jackall3n/postcss-scope#readme",
   "author": "Jack Allen <jackallensemail+git@gmail.com>",
   "license": "ISC",
   "dependencies": {
