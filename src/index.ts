@@ -46,11 +46,9 @@ function processNode(node: ChildNode, scopes: string[]) {
   }
 
   if (node.type === "rule") {
-    if (/^(body|html|:root)/.test(node.selector)) {
-      node.selector = node.selector.replace(
-        /^(body|html|:root)/,
-        scopes.join(", ")
-      );
+    const rootRegex = /^(body|html|:root)/;
+    if (rootRegex.test(node.selector)) {
+      node.selector = node.selector.replace(rootRegex, scopes.join(", "));
       return;
     }
 
