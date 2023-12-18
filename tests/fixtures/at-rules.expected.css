@@ -1,0 +1,103 @@
+@charset "utf-8";
+
+@container (width > 400px) and (height > 400px) {
+  .foo h2 {
+    font-size: 1.5em;
+  }
+}
+
+@counter-style foo {
+  system: cyclic;
+  symbols: '\1F44D';
+  suffix: ' ';
+}
+
+@font-face {
+  font-family: sans-serif;
+  src: url('') format('woff2');
+}
+
+@font-feature-values Font One {
+  @styleset {
+    nice-style: 12;
+  }
+}
+
+@import url('') print, screen;
+
+@keyframes foo {
+  0% {
+    font-size: 12px;
+  }
+  100% {
+    font-size: 24px;
+  }
+}
+
+@keyframes bar {
+  from {
+    font-size: 12px;
+  }
+  to {
+    font-size: 24px;
+  }
+}
+
+@layer foo {
+  .foo .text-base {
+    font-size: 12px;
+  }
+}
+
+@media screen {
+  .foo .class {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .foo article {
+    padding: 1rem 3rem;
+  }
+}
+
+@supports (display: flex) {
+  @media screen and (min-width: 900px) {
+    .foo article {
+      display: flex;
+    }
+  }
+}
+
+@namespace url(http://www.w3.org/1999/xhtml);
+
+@page {
+  size: 8.5in 9in;
+  margin-top: 4in;
+}
+
+@page :left {
+  margin-top: 4in;
+}
+
+@page wide {
+  size: a4 landscape;
+}
+
+@page {
+  @top-right {
+    content: 'Page ' counter(pageNumber);
+  }
+}
+
+@property --item-size {
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 40%;
+}
+
+@supports selector(h2 > p) {
+  .foo .bar {
+    color: red;
+  }
+}

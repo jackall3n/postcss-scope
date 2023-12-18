@@ -5,3 +5,11 @@ h4,
 h5 {
   color: red;
 }
+
+@media screen {
+  div,
+  #id,
+  .class {
+    font-size: 12px;
+  }
+}
