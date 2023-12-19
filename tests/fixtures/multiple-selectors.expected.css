@@ -5,3 +5,11 @@
 .foo h5 {
   color: red;
 }
+
+@media screen {
+  .foo div,
+  .foo #id,
+  .foo .class {
+    font-size: 12px;
+  }
+}

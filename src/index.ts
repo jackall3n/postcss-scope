@@ -40,18 +40,15 @@ const parse = (scope: string) =>
   });
 
 function processNode(node: ChildNode, scopes: string[]) {
-  if (node.type === "atrule") {
-    node.nodes.forEach((node) => processNode(node, scopes));
-
+  if (node.type === "atrule" && node.name !== "keyframes") {
+    node.nodes?.forEach((n) => processNode(n, scopes));
     return;
   }
 
   if (node.type === "rule") {
-    if (/^(body|html|:root)/.test(node.selector)) {
-      node.selector = node.selector.replace(
-        /^(body|html|:root)/,
-        scopes.join(", ")
-      );
+    const rootRegex = /^(body|html|:root)/;
+    if (rootRegex.test(node.selector)) {
+      node.selector = node.selector.replace(rootRegex, scopes.join(", "));
       return;
     }
 

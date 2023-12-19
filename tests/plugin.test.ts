@@ -67,6 +67,20 @@ describe("postcss-scope", () => {
     expect(actual.warnings()).toHaveLength(0);
   });
 
+  it("should scope at-rules", async () => {
+    const options = {
+      scope: ".foo",
+    };
+
+    const input = fixture("at-rules");
+    const expected = fixture("at-rules.expected");
+
+    const actual = await process(options, input);
+
+    expect(actual.css).toEqual(expected);
+    expect(actual.warnings()).toHaveLength(0);
+  });
+
   it("should scope multiple selectors", async () => {
     const options = {
       scope: ".foo",

@@ -6,7 +6,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "prepublish": "pnpm build"
+    "prepublish": "pnpm build",
+    "test": "jest"
   },
   "keywords": [
     "postcss",

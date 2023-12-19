@@ -22,3 +22,14 @@
 .bar h5 {
   color: red;
 }
+
+@media screen {
+  .foo div,
+  .foo #id,
+  .foo .class,
+  .bar div,
+  .bar #id,
+  .bar .class {
+    font-size: 12px;
+  }
+}
