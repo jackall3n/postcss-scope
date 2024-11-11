@@ -29,7 +29,7 @@
   "license": "ISC",
   "dependencies": {
     "postcss": "^8.4.32",
-    "postcss-selector-parser": "^6.0.13"
+    "postcss-selector-parser": "^7.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.6",
