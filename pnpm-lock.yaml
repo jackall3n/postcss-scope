@@ -10,7 +10,7 @@ dependencies:
     version: 8.4.32
   postcss-selector-parser:
     specifier: ^6.0.13
-    version: 6.0.13
+    version: 6.1.2
 
 devDependencies:
   '@babel/core':
@@ -2936,8 +2936,8 @@ packages:
       find-up: 4.1.0
     dev: true
 
-  /postcss-selector-parser@6.0.13:
-    resolution: {integrity: sha512-EaV1Gl4mUEV4ddhDnv/xtj7sxwrwxdetHdWUGnT4VJQf+4d05v6lHYZr8N573k5Z0BViss7BDhfWtKS3+sfAqQ==}
+  /postcss-selector-parser@6.1.2:
+    resolution: {integrity: sha512-Q8qQfPiZ+THO/3ZrOrO0cJJKfpYCagtMUkXbnEfmgUjwXg6z/WBeOyS9APBBPCTSiDV+s4SwQGu8yFsiMRIudg==}
     engines: {node: '>=4'}
     dependencies:
       cssesc: 3.0.0
